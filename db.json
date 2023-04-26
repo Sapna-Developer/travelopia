@@ -1,0 +1,36 @@
+{
+  "traveldetails": [
+    {
+      "name": "sapna",
+      "email": "abc@123",
+      "destination": "Europe",
+      "numOfTravelers": 2,
+      "budgetPerPerson": 300,
+      "id": 1
+    },
+    {
+      "name": "anita ",
+      "email": "anita123@gmail.com",
+      "destination": "Africa",
+      "numOfTravelers": 4,
+      "budgetPerPerson": 400,
+      "id": 3
+    },
+    {
+      "name": "Madhuri",
+      "email": "absc@123",
+      "destination": "India",
+      "numOfTravelers": 2,
+      "budgetPerPerson": 800,
+      "id": 8
+    },
+    {
+      "name": "sapna",
+      "email": "sapna@123",
+      "destination": "India",
+      "numOfTravelers": 5,
+      "budgetPerPerson": 700,
+      "id": 9
+    }
+  ]
+}

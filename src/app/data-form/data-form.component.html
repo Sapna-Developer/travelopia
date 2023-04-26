@@ -1,0 +1,66 @@
+<div mat-dialog-title>
+  <h1>Travel Form</h1>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" placeholder="Ex. sapna" formControlName="name">
+        <div *ngIf="myForm.get('name').invalid && (myForm.get('name').dirty || myForm.get('name').touched)">
+          <div *ngIf="myForm.get('name').errors.required">Name is required</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Ex. abc@123" formControlName="email">
+        <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">
+          <div *ngIf="myForm.get('email').errors.required">Email is required</div>
+          <div *ngIf="myForm.get('email').errors.email">Email is invalid</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Where do you want to go?</mat-label>
+        <mat-select formControlName="destination">
+          <mat-option *ngFor="let dest of destination" [value]="dest">
+            {{dest}}
+          </mat-option>
+        </mat-select>
+        <div
+          *ngIf="myForm.get('destination').invalid && (myForm.get('destination').dirty || myForm.get('destination').touched)">
+          <div *ngIf="myForm.get('destination').errors.required">Destination is required</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>No. of travelers</mat-label>
+        <input matInput type="number" placeholder="Ex. 4" formControlName="numOfTravelers">
+        <div
+          *ngIf="myForm.get('numOfTravelers').invalid && (myForm.get('numOfTravelers').dirty || myForm.get('numOfTravelers').touched)">
+          <div *ngIf="myForm.get('numOfTravelers').errors.required">No. of travelers is required</div>
+          <div *ngIf="myForm.get('numOfTravelers').errors.min">No. of travelers must be at least 1</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Budget per person</mat-label>
+        <input matInput type="number" placeholder="Ex. 4000" formControlName="budgetPerPerson">
+        <mat-hint>In Dollars</mat-hint>
+        <div
+          *ngIf="myForm.get('budgetPerPerson').invalid && (myForm.get('budgetPerPerson').dirty || myForm.get('budgetPerPerson').touched)">
+          <div *ngIf="myForm.get('budgetPerPerson').errors.required">Budget Per Person is required</div>
+        </div>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialogue-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">{{data?'Update':'Save'}}</button>
+  </div>
+</form>
